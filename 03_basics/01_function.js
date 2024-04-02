@@ -59,3 +59,35 @@ sayMyname() // function execution
 // loginMessage('John') // Welcome John
 // console.log(loginMessage('John')) // Welcome John
 // console.log(loginMessage(4)) // Welcome undefined
+
+
+// function calculateCartPrice(num1, num2, ...prices) {  // rest operator
+//   let total = 0
+//   for (let price of prices) {
+//     total += price
+//   }
+//   return total
+// }
+// console.log(calculateCartPrice(10, 20, 30, 40)) // 70
+
+// // passing object to a function
+// const user = {
+//   username: 'john',
+//   price: 100
+// }
+// function handleObject(anyobject) {
+//   anyobject.price = 200
+//   console.log(`Price is ${anyobject.price}`)
+// }
+// handleObject(user) // Price is 200
+
+// handleObject({ price: 300 }) // Price is 200
+
+// // passing array to a function
+// const myArray = [1, 2, 3]
+// function handleArray(anyarray) {
+//   anyarray.push(4)
+//   return anyarray
+// }
+// console.log(handleArray(myArray))  // [1, 2, 3]
+// console.log(handleArray([1, 2, 3])) // [1, 2, 3, 4]
