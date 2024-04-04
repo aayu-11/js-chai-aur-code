@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body style="background-color: darkslategray;color: white;">
+  <div class="parent">
+    <!-- this is a comment -->
+    <div class="day">Mon</div>
+    <div class="day">Tue</div>
+    <div class="day">wed</div>
+    <div class="day">thu</div>
+  </div>
+</body>
+<script>
+  const parent = document.querySelector('.parent')
+  // console.log(parent.children)
+  // for (let i = 0; i < parent.children.length; i++) {
+  //   console.log(parent.children[i].innerHTML)
+  // }
+  // parent.children[1].style.color = 'red'
+  // console.log(parent.firstElementChild)
+
+  const dayOne = document.querySelector('.day')
+  // console.log(dayOne)
+  // console.log(dayOne.nextElementSibling)
+  // console.log(dayOne.previousElementSibling)
+  // console.log(dayOne.parentElement)
+  console.log('Nodes:', parent.childNodes)
+  // react manipulates the DOM through childNodes
+  
+</script>
+</html>
