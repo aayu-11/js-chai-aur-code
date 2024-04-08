@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>api request in old fashion {AJAX}</title>
+</head>
+<style>
+  .card {
+    width: 300px;
+    height: 400px;
+    margin: 0 auto;
+    background-color: #f3f3f3;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    color: black;
+    border-radius: 5px;
+  }
+
+  .card:hover {
+    box-shadow: 4px 8px 16px 0 gray;
+    scale: 1.02;
+  }
+
+  .container {
+    padding: 20px;
+    text-align: center;
+  }
+
+  #userImage {
+    width: 100%;
+    height: 200px;
+  }
+
+  #followers {
+    margin-top: 20px;
+  }
+</style>
+
+<body style="background-color: black; color: white;">
+  <!-- 0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete. -->
+  <button class="button">Show User</button>
+  <div class="card">
+    <div class="container">
+      <img id="userImage" src="" alt="User Image">
+      <h2 id="userName"></h2>
+      <p id="followers"></p>
+    </div>
+  </div>
+</body>
+<script>
+  const url = 'https://api.github.com/users/hiteshchoudhary'
+  const xhr = new XMLHttpRequest()       // like fetch() this method is used to handle api's
+  console.log(xhr.readyState)
+
+  xhr.open('GET', url)
+  console.log(xhr.readyState)
+
+  xhr.onreadystatechange = function () {
+    console.log(xhr.readyState)
+    if (xhr.readyState == 4) {
+      const data = JSON.parse(this.responseText)
+      console.log(data)
+    }
+  }
+  xhr.send();
+
+  function fetchData() {
+    xhr.open('GET', url);
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        const data = JSON.parse(this.responseText);
+        document.getElementById('userImage').src = data.avatar_url;
+        document.getElementById('userName').innerText = data.login;
+        document.getElementById('followers').innerText = 'Followers: ' + data.followers;
+      }
+    };
+    xhr.send();
+  }
+  const btn = document.querySelector('.button')
+  btn.addEventListener('click', fetchData)
+</script>
+
+</html>
