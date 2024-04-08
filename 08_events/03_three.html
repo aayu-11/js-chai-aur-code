@@ -17,13 +17,19 @@
     console.log(str, Date.now())
   }
   const start = document.querySelector('#start')
-  const initervalID = undefined
+  let intervalID = undefined
   start.addEventListener('click', () => {
+    if (intervalID) {       // this condition is needed to handle multiple clicking on start button
+      clearInterval(intervalID)
+    }
     intervalID = setInterval(sayDate, 1000, 'hi');
   })
   const stop = document.querySelector('#stop')
   stop.addEventListener('click', () => {
-    clearInterval(intervalID)
+    if (intervalID) {
+      clearInterval(intervalID)
+      intervalID = undefined;
+    }
   })
 </script>
 
