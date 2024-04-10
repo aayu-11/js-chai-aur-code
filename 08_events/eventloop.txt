@@ -1,0 +1,17 @@
+The event loop is a key component of JavaScript's concurrency model and is responsible for executing JavaScript code, managing the execution stack, and handling asynchronous callbacks.
+
+JavaScript is single-threaded, which means it can only do one thing at a time. But many web APIs are asynchronous, so how does JavaScript handle this? The answer is the event loop and the web API environment provided by the browser.
+
+Here's a simplified explanation of how it works:
+
+When you run a script, the JavaScript engine creates a global execution context and pushes it onto the call stack.
+
+As the engine encounters functions, it creates new execution contexts for them and pushes them onto the stack. It executes the function at the top of the stack; when that function is done, it's popped off the stack.
+
+If a function makes an asynchronous call (like a setTimeout, fetch, or addEventListener), the request is sent to the corresponding web API provided by the browser.
+
+The web API handles the request. When it's done, it pushes the callback function into a task queue (also known as the callback queue).
+
+The event loop's job is to look at the call stack and the task queue. If the call stack is empty, it takes the first task from the queue and pushes it onto the call stack, which effectively runs it.
+
+This process continues for as long as there are callbacks in the task queue or execution contexts on the stack. This is known as a "run-to-completion" model, and it's why JavaScript can handle asynchronous operations even though it's single-threaded.
