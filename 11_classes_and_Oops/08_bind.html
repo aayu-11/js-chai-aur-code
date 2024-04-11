@@ -27,29 +27,36 @@
 </script>
 
 // The bind method in JavaScript is a method provided by all functions that creates a new function with a specific this
-value and possibly some arguments already provided. This is often used to ensure that a function has the correct this
-value.
+// value and possibly some arguments already provided. This is often used to ensure that a function has the correct this
+// value.
 
-// In your code, this.handleClick.bind(this) is creating a new function where this inside handleClick is the react
-instance.
+// // In your code, this.handleClick.bind(this) is creating a new function where this inside handleClick is the react
+// instance.
 
-// Here's what's happening:
+// // Here's what's happening:
 
-// When new react() is called, a new react object is created and this inside the react constructor is set to this new
-object.
+// // When new react() is called, a new react object is created and this inside the react constructor is set to this new
+// object.
 
-// document.querySelector('button').addEventListener('click', this.handleClick.bind(this)) is then called. This adds a
-click event listener to the button.
+// // document.querySelector('button').addEventListener('click', this.handleClick.bind(this)) is then called. This adds
+a
+// click event listener to the button.
 
-// this.handleClick.bind(this) creates a new function where this inside handleClick is the react instance. This ensures
-that when the button is clicked and handleClick is called, this inside handleClick is the react instance, not the
-button.
+// // this.handleClick.bind(this) creates a new function where this inside handleClick is the react instance. This
+ensures
+// that when the button is clicked and handleClick is called, this inside handleClick is the react instance, not the
+// button.
 
-// So, when the button is clicked, console.log('button clicked') and console.log(this.server) are called with this set
-to the react instance. This means this.server will correctly log 'https://localhost:3000'.
+// // So, when the button is clicked, console.log('button clicked') and console.log(this.server) are called with this
+set
+// to the react instance. This means this.server will correctly log 'https://localhost:3000'.
 
-// Without bind, this inside handleClick would be the button, because event handlers in JavaScript are called with this
-set to the target of the event. This would mean this.server would be undefined, because the button doesn't have a server
-property.
+// // Without bind, this inside handleClick would be the button, because event handlers in JavaScript are called with
+this
+// set to the target of the event. This would mean this.server would be undefined, because the button doesn't have a
+server
+// property.
+
+//
 
 </html>
