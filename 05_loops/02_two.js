@@ -19,3 +19,4 @@
 //   console.log(i);
 //   i++;
 // } while (i < 10);
+// just a simple example
