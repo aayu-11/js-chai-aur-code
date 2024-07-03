@@ -53,4 +53,3 @@ String.prototype.trueLength = function () {
 anotherUserName.trueLength();
 "ayush".trueLength();
 "hello".trueLength();
-
